@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
+import {SERVICE_URL} from '../../conf/conf';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +13,7 @@ export class CategoryService {
   }
 
   getCategories(): Observable<any> {
-    return this.http.get('http://192.168.3.177:5000/categories');
+    return this.http.get(`${SERVICE_URL}/categories`);
   }
 
   getCategory(): Observable<Category> {
