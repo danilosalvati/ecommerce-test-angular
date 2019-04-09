@@ -12,12 +12,12 @@ export class CategoryService {
   constructor(private http: HttpClient) {
   }
 
-  getCategories(): Observable<any> {
-    return this.http.get(`${SERVICE_URL}/categories`);
+  getCategories(): Observable<Categories> {
+    return this.http.get<Categories>(`${SERVICE_URL}/categories`);
   }
 
-  getCategory(): Observable<Category> {
-    return of({id: 11, title: 'Categoria Mock'});
+  getCategory(id: number): Observable<Category> {
+    return this.http.get<Category>(`${SERVICE_URL}/category/${id}`);
   }
 
 }
