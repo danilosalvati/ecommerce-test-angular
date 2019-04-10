@@ -9,6 +9,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { CategoryService } from './services/category.service';
+import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CategoryService } from './services/category.service';
     CategoriesComponent,
     ProductDetailComponent,
     NavBarComponent,
-    ProductListComponent
+    ProductListComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
