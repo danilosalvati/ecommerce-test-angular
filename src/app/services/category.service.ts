@@ -1,16 +1,18 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-
-  constructor() {
+  baseUrl = 'https://192.168.3.161:8080';
+  constructor(private http: HttpClient) {
   }
 
   getCategories(): Observable<Categories> {
-    return of([]);
+    return this.http
+            .get<Categories>(`${this.baseUrl}/categories`);
   }
 
   getCategory(): Observable<Category> {
