@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 import {SERVICE_URL} from '../../conf/conf';
 
 @Injectable({
@@ -6,8 +8,9 @@ import {SERVICE_URL} from '../../conf/conf';
 })
 export class ProductService {
 
-  constructor() {
-  }
+  constructor(
+    private http: HttpClient
+  ) {}
 
   getProduct(id: number): Promise<Product> {
     return fetch(`${SERVICE_URL}/product/${id}`)
@@ -16,5 +19,10 @@ export class ProductService {
         return response.json();
       }
     })
+  }
+
+  // Delete
+  delProduct(id: number): Observable<boolean>{
+    return this.http.delete<boolean>(`${SERVICE_URL}/product/${id}`);
   }
 }
