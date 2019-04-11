@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-
 import {SERVICE_URL} from '../../conf/conf';
 
 @Injectable({
@@ -9,8 +8,9 @@ import {SERVICE_URL} from '../../conf/conf';
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(
+    private http: HttpClient
+  ) {}
 
   getCategories(): Observable<Categories> {
     return this.http.get<Categories>(`${SERVICE_URL}/categories`);
