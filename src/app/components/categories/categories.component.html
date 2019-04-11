@@ -1,26 +1,5 @@
 <section class="Category-grid">
-  <div class="Category-item">
-    <h2>Category name</h2>
-    <figure>
-      <img src="" alt="">
-    </figure>
-  </div>
-  <div class="Category-item">
-    <h2>Category name</h2>
-    <figure>
-      <img src="" alt="">
-    </figure>
-  </div>
-  <div class="Category-item">
-    <h2>Category name</h2>
-    <figure>
-      <img src="" alt="">
-    </figure>
-  </div>
-  <div class="Category-item">
-    <h2>Category name</h2>
-    <figure>
-      <img src="" alt="">
-    </figure>
+  <div class="Category-item" *ngFor="let category of categoriesList">
+    <h2><a routerLink="/category/{{category.id}}">{{category.title}}</a></h2>
   </div>
 </section>

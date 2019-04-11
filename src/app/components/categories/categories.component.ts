@@ -7,13 +7,14 @@ import {CategoryService} from '../../services/category.service';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
+  categoriesList:Categories;
 
   constructor(private categoryService: CategoryService) {
   }
 
   getCategories(): void {
     this.categoryService.getCategories()
-      .subscribe(res => console.log(res));
+      .subscribe(res => this.categoriesList = res);
   }
 
   ngOnInit() {
