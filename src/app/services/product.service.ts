@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
+import {SERVICE_URL} from '../../conf/conf';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,12 @@ export class ProductService {
   constructor() {
   }
 
-  getProduct(): Observable<Product> {
-    return of({id: 11, title: 'Prodotto Mock', price: 11, imgUrl: 'www.google.it', inStock: 15});
+  getProduct(id: number): Observable<Product> {
+    return fetch(`${SERVICE_URL}/product/${id}`)
+    .then(function(response) {
+      if(response) {
+        return response.json();
+      }
+    })
   }
 }
