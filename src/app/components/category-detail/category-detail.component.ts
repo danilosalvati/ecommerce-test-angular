@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-
+import { Location } from '@angular/common';
 import {CategoryService} from '../../services/category.service';
 
 @Component({
@@ -9,18 +9,26 @@ import {CategoryService} from '../../services/category.service';
   styleUrls: ['./category-detail.component.scss']
 })
 export class CategoryDetailComponent implements OnInit {
+  productsList: Products;
 
-  constructor(private categoryService: CategoryService, private route: ActivatedRoute) {
+  constructor(
+    private categoryService: CategoryService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
+
+  getCategoriesProducts(){
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.categoryService.getCategoriesProducts(id)
+      .subscribe(products => this.productsList = products)
   }
 
-  getCategory(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.categoryService.getCategory(id)
-      .subscribe(res => console.log(res));
+  goBack(): void {
+    this.location.back();
   }
 
   ngOnInit() {
-    this.getCategory();
+    this.getCategoriesProducts();
   }
 
 }
