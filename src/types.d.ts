@@ -12,6 +12,7 @@ interface Product {
   price: number;
   imgUrl: string;
   inStock: number;
+  description: string;
 }
 
 interface ProductDetails extends Product{
