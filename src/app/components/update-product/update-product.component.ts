@@ -17,7 +17,10 @@ export class UpdateProductComponent implements OnInit {
 
   updateProduct(){
     this.productService.updateProduct(this.product)
-    .subscribe( () => console.log('Ho aggiornato il prodotto'));
+    .subscribe(
+      () => console.log('Ho aggiornato il prodotto'),
+      error => alert('Error')
+    );
   }
 
   getProduct() {
