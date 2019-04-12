@@ -1,0 +1,13 @@
+<form class="Form" action="">
+  <fieldset>
+    <legend>
+      <h2>Update product</h2>
+    </legend>
+    <app-form-product [product]="product"></app-form-product>
+
+    <div class="Form-field">
+      <input type='hidden' value="{{product.id}}">
+      <input (click)="updateProduct()" class="Form-submit" type="submit" value="Update product">
+    </div>
+  </fieldset>
+</form>
