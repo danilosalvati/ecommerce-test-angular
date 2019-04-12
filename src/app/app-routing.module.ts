@@ -4,11 +4,13 @@ import {CategoriesComponent} from './components/categories/categories.component'
 import {CategoryDetailComponent} from './components/category-detail/category-detail.component';
 import {AddProductsComponent} from './components/add-products/add-products.component';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 const routes: Routes = [
   {path: '', component: CategoriesComponent},
   {path: 'categories', redirectTo: '/'},
   {path: 'add-product', component: AddProductsComponent},
+  {path: 'update-product/:id', component: UpdateProductComponent},
   {path: 'category/:id', component: CategoryDetailComponent},
   {path: 'product/:id', component: ProductDetailComponent}
 ];

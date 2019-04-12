@@ -10,6 +10,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CategoryService } from './services/category.service';
 import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 import { AddProductsComponent } from './components/add-products/add-products.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AddProductsComponent } from './components/add-products/add-products.com
     ProductDetailComponent,
     NavBarComponent,
     CategoryDetailComponent,
-    AddProductsComponent
+    AddProductsComponent,
+    FormProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
