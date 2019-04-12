@@ -21,6 +21,11 @@ export class ProductService {
     })
   }
 
+  // Post
+  addProduct(id: number, product: Product): Observable<Product>{
+    return this.http.post<Product>(`${SERVICE_URL}/categories/${id}/products`, product);
+  }
+
   // Delete
   delProduct(id: number): Observable<boolean>{
     return this.http.delete<boolean>(`${SERVICE_URL}/product/${id}`);
