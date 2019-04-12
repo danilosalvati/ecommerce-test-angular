@@ -22,8 +22,13 @@ export class ProductService {
   }
 
   // Post
-  addProduct(id: number, product: Product): Observable<Product>{
-    return this.http.post<Product>(`${SERVICE_URL}/categories/${id}/products`, product);
+  addProduct(id: number, product: Object): Observable<Product>{
+    return this.http.post<Product>(`${SERVICE_URL}/categories/${id}/product`, product);
+  }
+
+  // Post
+  updateProduct(id: number, product: Object): Observable<Product>{
+    return this.http.put<Product>(`${SERVICE_URL}/categories/${id}/product`, product);
   }
 
   // Delete
