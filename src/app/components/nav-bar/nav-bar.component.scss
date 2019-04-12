@@ -41,6 +41,7 @@ $color-menu-link-underline: $color-menu-link;
 
   &-link {
     color: $color-menu-link;
+    font-family: 'Oswald', sans-serif;
     text-decoration: none;
     transition: all .3s ease-in-out;
   }
