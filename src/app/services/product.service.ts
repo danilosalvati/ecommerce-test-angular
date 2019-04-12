@@ -15,20 +15,20 @@ export class ProductService {
   getProduct(id: number): Promise<Product> {
     return fetch(`${SERVICE_URL}/product/${id}`)
     .then(function(response) {
-      if(response) {
+      if(response.ok) {
         return response.json();
       }
     })
   }
 
   // Post
-  addProduct(id: number, product: Object): Observable<Product>{
+  addProduct(id: number, product: object): Observable<Product>{
     return this.http.post<Product>(`${SERVICE_URL}/categories/${id}/product`, product);
   }
 
-  // Post
-  updateProduct(id: number, product: Object): Observable<Product>{
-    return this.http.put<Product>(`${SERVICE_URL}/categories/${id}/product`, product);
+  // Put
+  updateProduct(product: object): Observable<Product>{
+    return this.http.put<Product>(`${SERVICE_URL}/product`, product);
   }
 
   // Delete
