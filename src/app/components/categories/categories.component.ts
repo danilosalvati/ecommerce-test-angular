@@ -9,8 +9,9 @@ import {CategoryService} from '../../services/category.service';
 export class CategoriesComponent implements OnInit {
   categoriesList:Categories;
 
-  constructor(private categoryService: CategoryService) {
-  }
+  constructor(
+    private categoryService: CategoryService
+  ) {}
 
   getCategories(): void {
     this.categoryService.getCategories()

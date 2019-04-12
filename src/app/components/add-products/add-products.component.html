@@ -2,30 +2,44 @@
 <form class="Form" action="">
   <fieldset>
     <legend>
-      <h2>Aggiungi un nuovo prodotto</h2>
+      <h2>Add new product</h2>
     </legend>
     <div class="Form-field">
-      <label class="Form-label" for="product-name">Product name</label>
-      <input class="Form-input" type="text" name="product-name" placeholder="Insert the name of product">
+      <label class="Form-label" for="product-name">Product category</label>
+      <select [(ngModel)]="categoryID" class="Form-input" name="category-id" required>
+        <option *ngFor="let category of categoriesList" value="{{category.id}}">{{category.title}}</option>
+      </select>
+    </div>
+    <div class="Form-field">
+      <label class="Form-label" for="product-title">Product title</label>
+      <input [(ngModel)]="product.title" class="Form-input" type="text" name="product-title" placeholder="Insert the name of product" required #title="ngModel">
+
+      <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+        <div *ngIf="title.errors.required">
+          Title is required.
+        </div>
+      </div>
+
     </div>
     <div class="Form-field">
       <label class="Form-label" for="product-price">Product price</label>
-      <input class="Form-input" type="number" name="product-price" placeholder="Insert the price of product">
+      <input [(ngModel)]="product.price" class="Form-input" type="number" name="product-price" placeholder="Insert the price of product" required>
     </div>
     <div class="Form-field">
       <label class="Form-label" for="product-image">Product image</label>
-      <input class="Form-input" type="text" name="product-image" placeholder="Insert image of product">
+      <input [(ngModel)]="product.imgUrl" class="Form-input" type="text" name="product-image" placeholder="Insert image of product" required>
     </div>
     <div class="Form-field">
       <label class="Form-label" for="product-quantity">Product quantity</label>
-      <input class="Form-input" type="number" name="product-quantity" placeholder="Insert quantity of product">
+      <input [(ngModel)]="product.inStock" class="Form-input" type="number" name="product-quantity" placeholder="Insert quantity of product" required>
     </div>
     <div class="Form-field">
       <label class="Form-label" for="product-description">Product description</label>
-      <textarea class="Form-input" name="product-description" placeholder="Insert description of product" rows="8" cols="80"></textarea>
+      <textarea [(ngModel)]="product.description" class="Form-input" name="product-description" placeholder="Insert description of product" rows="8" cols="80"></textarea>
     </div>
     <div class="Form-field">
-      <button class="For-submit" type="submit">Insert product</button>
+      <input (click)="addProduct()" class="Form-submit" type="submit" value="Insert product">
+      <button class="Form-reset" type="reset">Reset</button>
     </div>
   </fieldset>
 </form>
