@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import {CategoryService} from '../../services/category.service';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../services/product.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-add-products',
@@ -9,23 +8,23 @@ import {ProductService} from '../../services/product.service';
   styleUrls: ['./add-products.component.scss']
 })
 export class AddProductsComponent implements OnInit {
-  categoriesList:Categories;
   product = {};
   categoryID: number;
+  categoriesList: Categories;
 
   constructor(
-    private categoryService: CategoryService,
-    private productService: ProductService
+    private productService: ProductService,
+    private categoryService: CategoryService
   ) {}
-
-  addProduct(){
-    this.productService.addProduct(this.categoryID, this.product)
-      .subscribe( () => console.log('Ho inserito un prodotto'));
-  }
 
   getCategories(): void {
     this.categoryService.getCategories()
-      .subscribe(res => this.categoriesList = res);
+    .subscribe(res => this.categoriesList = res);
+  }
+
+  addProduct(){
+    this.productService.addProduct(this.categoryID, this.product)
+    .subscribe( () => console.log('Ho inserito un prodotto'));
   }
 
   ngOnInit() {
